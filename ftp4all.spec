@@ -5,8 +5,6 @@ Version:	3.012
 Release:	1
 License:	GPL
 Group:		Networking/Daemons
-Group(de):	Netzwerkwesen/Server
-Group(pl):	Sieciowe/Serwery
 Source0:	http://www.ftp4all.de/v3/archives/ftpd-%{version}.tar.gz
 Source1:	http://www.ftp4all.de/v3/f4awebsite.tar.gz
 Patch0:		ftpd-opt.patch
