@@ -13,7 +13,7 @@ Patch0:		ftpd-opt.patch
 Patch1:		ftpd-endian.patch
 Patch2:		ftpd-configure.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-# this isn't ,,standard ftp''. Don't treat it as system ftp server
+# this isn't ,,standard FTP''. Don't treat it as system FTP server
 # and don't put Provides:ftpserver etc here ! --misiek
 
 %description
