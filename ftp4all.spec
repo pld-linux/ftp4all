@@ -51,7 +51,7 @@ dostêp na poziomie IP, limity pasma, statystyki transferów.
 %patch1 -p1
 
 %build
-%ifnarch %{ix86}
+%ifarch ppc
 %define optflags -O0
 %endif
 
