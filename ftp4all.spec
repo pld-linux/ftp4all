@@ -2,7 +2,7 @@ Summary:	free, open source FTP server implementation
 Summary(pl):	implementacja serwera FTP
 Name:		ftp4all
 Version:	3.012
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://www.ftp4all.de/v3/archives/ftpd-%{version}.tar.gz
