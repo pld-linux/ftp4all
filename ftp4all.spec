@@ -55,11 +55,12 @@ echo "y" | CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}" ./configure
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}}
 
-install bin/*	$RPM_BUILD_ROOT%{_bindir}
+install bin/* $RPM_BUILD_ROOT%{_bindir}
+
 cp -ar standard	$RPM_BUILD_ROOT%{_datadir}/%{name}
+
 gzip -9nf CHANGES README f4adp/*
 
 %clean
