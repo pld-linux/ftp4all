@@ -46,7 +46,9 @@ bazy u¿ytkowników (/etc/passwd lub NIS), ani UNIXowych praw dostêpu do
 plików.
 
 Te i inne mo¿liwo¶ci jak ratio dla upload i download per u¿ytkownik,
-dostêp na poziomie IP, limity pasma, statystyki transferów.
+dostêp na poziomie IP, limity pasma, statystyki transferów sprawiaj±
+¿e FTP4ALL to dobry wybór dla prywatnych, specjalistycznych serwerów
+FTP.
 
 %prep
 %setup -q -n ftpd-%{version} -a1
