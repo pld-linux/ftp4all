@@ -51,11 +51,11 @@ dostêp na poziomie IP, limity pasma, statystyki transferów.
 %patch1 -p1
 
 %build
-%ifarch %{ix86}
-echo "y" | CFLAGS="%{rpmcflags}" ./configure
-%else
-echo "y" | ./configure
+%ifnarch %{ix86}
+%define optflags -O0
 %endif
+
+echo "y" | CFLAGS="%{rpmcflags}" ./configure
 %{__make}
 
 %install
