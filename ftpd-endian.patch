@@ -1,0 +1,37 @@
+diff -urN ftpd-3.012.org/lib/des-private.h ftpd-3.012/lib/des-private.h
+--- ftpd-3.012.org/lib/des-private.h	Tue Dec 19 20:15:12 2000
++++ ftpd-3.012/lib/des-private.h	Tue Dec 19 20:17:36 2000
+@@ -2,30 +2,13 @@
+ #define DES_PRIVATE 1
+ 
+ #include "des.h"
++#include <endian.h>
+ 
+ #if (!BIG_ENDIAN && !LITTLE_ENDIAN)
+-#ifdef __alpha
+-#define LITTLE_ENDIAN 1
+-#endif
+-#ifdef i386
+-#define LITTLE_ENDIAN 1
+-#endif
+-#ifdef sun386
+-#define LITTLE_ENDIAN 1
+-#endif
+-#ifdef THINK_C			/* THINK C compiler for Mac */
+-#define BIG_ENDIAN 1
+-#endif
+-#ifdef mc68000
+-#define BIG_ENDIAN 1
+-#endif
+-#ifdef sparc
+-#define BIG_ENDIAN 1
+-#endif
+-#ifdef _IBMR2
++#if __BYTE_ORDER == __BIG_ENDIAN
+ #define BIG_ENDIAN 1
+ #endif
+-#if defined(vax) || (defined(ultrix) && defined(mips))
++#if __BYTE_ORDER == __LITTLE_ENDIAN
+ #define LITTLE_ENDIAN 1
+ #endif
+ #endif
