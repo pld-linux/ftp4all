@@ -13,6 +13,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 # this isn't ,,standard ftp''. Don't treat it as system ftp server
 # and don't put Provides:ftpserver etc here ! --misiek
 
+%ifarch ppc
+%define		optflags		-O0
+%endif
+
 %description
 FTP4ALL was designed to require no superuser privileges. The
 advantages are that FTP4ALL cannot be exploited to gain root access on
@@ -51,10 +55,6 @@ dostêp na poziomie IP, limity pasma, statystyki transferów.
 %patch1 -p1
 
 %build
-%ifarch ppc
-%define optflags -O0
-%endif
-
 echo "y" | CFLAGS="%{rpmcflags}" ./configure
 %{__make}
 
