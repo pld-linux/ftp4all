@@ -6,7 +6,9 @@ Release:	3
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://www.ftp4all.de/v3/archives/ftpd-%{version}.tar.gz
+# Source0-md5:	a1bdeb4080d3900099e07aebd5fdd460
 Source1:	http://www.ftp4all.de/v3/f4awebsite.tar.gz
+# Source1-md5:	34b5c4712b8ed23af5beea1074f71fd7
 Patch0:		ftpd-opt.patch
 Patch1:		ftpd-endian.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
