@@ -52,7 +52,7 @@ na poziomie IP, limity pasma, statystyki transferów.
 %patch1 -p1
 
 %build
-echo "y" | CFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS}" ./configure
+echo "y" | CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}" ./configure
 %{__make}
 
 %install
