@@ -1,0 +1,57 @@
+diff -urN ftpd-3.012.org/cfg/configure ftpd-3.012/cfg/configure
+--- ftpd-3.012.org/cfg/configure	Sat Dec 16 13:39:49 2000
++++ ftpd-3.012/cfg/configure	Sat Dec 16 13:59:07 2000
+@@ -37,7 +37,6 @@
+ echo $CC
+ 
+ cd cfg
+-CFLAGS=""
+ echo $ac_n "| checking for sparcv9 architecture ... $ac_c"
+ SYSTEM=`uname`
+ if [ "$SYSTEM" = "SunOS" ]; then
+@@ -49,7 +48,7 @@
+       if [ $LONGSIZE -eq 64 ]; then
+         SPARCV9=yes
+         CC=cc
+-        CFLAGS="-xarch=v9"
++        CFLAGS="$CFLAGS -xarch=v9"
+         CFLAGS="$CFLAGS $CFLAGS_TEST"
+       fi
+     fi
+@@ -64,18 +63,6 @@
+ fi
+ cd ..
+ 
+-if [ "$1" = "debug" -o "$1" = "gdb" ]; then
+-  if [ "$SPARCV9" = "yes" ]; then
+-    CFLAGS="$CFLAGS -g"
+-  else
+-    CFLAGS="$CFLAGS -g -Wall"
+-  fi
+-else
+-  if [ ! "$SPARCV9" = "yes" ]; then
+-    CFLAGS="$CFLAGS -O"
+-  fi
+-fi
+-
+ DEF=""
+ echo $ac_n "| checking for sys/select.h ... $ac_c"
+ if [ -r /usr/include/sys/select.h ]; then
+@@ -253,7 +240,7 @@
+ EOF
+ 
+ if [ ! "$DES" = "" ]; then
+-  echo "	@cd lib ; make" >>Makefile
++  echo "	@cd lib ; make CFLAGS=\"$CFLAGS\" " >>Makefile
+ fi
+ 
+ cat << "EOF" >>Makefile
+diff -urN ftpd-3.012.org/lib/Makefile ftpd-3.012/lib/Makefile
+--- ftpd-3.012.org/lib/Makefile	Sat Dec 16 13:39:49 2000
++++ ftpd-3.012/lib/Makefile	Sat Dec 16 13:44:34 2000
+@@ -1,5 +1,4 @@
+ CC=gcc
+-CFLAGS=-O
+ LIBNAME=libdes.a
+ O_FILES=cbc-cksum.o cbc-encrypt.o des-bitrev.o des-data.o des-expand.o des-fun.o des-hash.o des-hex.o des-perms.o des-reverse.o des-spe-64.o des-spe-data.o des-sun-key.o ecb-encrypt-64.o ecb-encrypt-p.o ecb-encrypt.o ecb-encrypt2.o ksched-fast.o ksched.o new-crypt.o pcbc-encrypt.o str-to-key.o sun-cbc-crypt.o sun-ecb-crypt.o sun-setpar.o unix-crypt.o
+ 
