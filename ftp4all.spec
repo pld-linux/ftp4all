@@ -10,6 +10,7 @@ Group(pl):	Sieciowe/Serwery
 Source0:	http://www.ftp4all.de/v3/archives/ftpd-%{version}.tar.gz
 Source1:	http://www.ftp4all.de/v3/f4awebsite.tar.gz
 Patch0:		ftpd-opt.patch
+Patch1:		ftpd-endian.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 # this isn't ,,standard ftp''. Don't treat it as system ftp server
 # and don't put Provides:ftpserver etc here ! --misiek
@@ -48,6 +49,7 @@ na poziomie IP, limity pasma, statystyki transferów.
 %prep
 %setup -q -n ftpd-%{version} -a1
 %patch0 -p1
+%patch1 -p1
 
 %build
 echo "y" | CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}" ./configure
