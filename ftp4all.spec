@@ -32,17 +32,18 @@ have a C compiler (gcc preferred) and related tools to compile
 FTP4ALL.
 
 %description -l pl
-FTP4ALL zosta³ zaprojektowany tak by nie wymagaæ praw superu¿ytkownika.
-G³ówn± zalet± takiego podej¶cia jest uniemo¿liwienie wykorzystania
-potencjalnych b³êdów do zdobycia uprawnieñ roota. Ponadto ka¿dy u¿ytkownik
-mo¿e uruchamiaæ ten serwer.
+FTP4ALL zosta³ zaprojektowany tak by nie wymagaæ praw
+superu¿ytkownika. G³ówn± zalet± takiego podej¶cia jest uniemo¿liwienie
+wykorzystania potencjalnych b³êdów do zdobycia uprawnieñ roota.
+Ponadto ka¿dy u¿ytkownik mo¿e uruchamiaæ ten serwer.
 
 Jednak FTP4ALL nie jest zaprojektowany by zast±piæ wu-ftpd czy dowolny
 inny systemowy serwer FTP, a to dlatego, ¿e nie u¿ywa on standardowej
-bazy u¿ytkowników (/etc/passwd lub NIS), ani UNIXowych praw dostêpu do plików.
+bazy u¿ytkowników (/etc/passwd lub NIS), ani UNIXowych praw dostêpu do
+plików.
 
-Te i inne mo¿liwo¶ci jak ratio dla upload i download per u¿ytkownik, dostêp
-na poziomie IP, limity pasma, statystyki transferów.
+Te i inne mo¿liwo¶ci jak ratio dla upload i download per u¿ytkownik,
+dostêp na poziomie IP, limity pasma, statystyki transferów.
 
 %prep
 %setup -q -n ftpd-%{version} -a1
