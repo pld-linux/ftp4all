@@ -1,0 +1,72 @@
+--- ftpd-3.012/cfg/configure.orig	2004-03-28 21:05:06.384114411 +0200
++++ ftpd-3.012/cfg/configure	2004-03-28 21:04:16.934002554 +0200
+@@ -54,6 +54,7 @@
+     fi
+   fi
+ fi
++if [ -z "$LIBDIR" ]; then
+ if [ "$SPARCV9" = "yes" ]; then
+   echo "yes"
+   LIBDIR=/usr/lib/sparcv9
+@@ -61,6 +62,7 @@
+   echo "no"
+   LIBDIR=/usr/lib
+ fi
++fi
+ cd ..
+ 
+ DEF=""
+@@ -80,7 +82,7 @@
+ fi
+ 
+ LIB=""
+-for library in crypt nsl socket resolv V3; do
++for library in crypt; do
+   echo $ac_n  "| checking for library $library ... $ac_c"
+   if [ -r $LIBDIR/lib$library.a -o -r $LIBDIR/lib$library.so ]; then
+     echo found
+@@ -91,7 +93,7 @@
+ done
+ 
+ echo $ac_n "| checking for memmove() ... $ac_c"
+-ar -t /usr/lib/libc.a 2>/dev/null | grep memmove.o >/dev/null 2>/dev/null
++objdump -T $SLIBDIR/libc-*.so 2>/dev/null | grep memmove >/dev/null 2>/dev/null
+ if [ $? -eq 0 ]; then
+   echo found
+ else
+@@ -100,7 +102,7 @@
+ fi
+ 
+ echo $ac_n "| checking for raise() ... $ac_c"
+-ar -t /usr/lib/libc.a 2>/dev/null | grep raise.o >/dev/null 2>/dev/null
++objdump -T $SLIBDIR/libc-*.so 2>/dev/null | grep raise >/dev/null 2>/dev/null
+ if [ $? -eq 0 ]; then
+   echo found
+ else
+@@ -109,7 +111,7 @@
+ fi
+ 
+ echo $ac_n "| checking for sigset() ... $ac_c"
+-ar -t /usr/lib/libc.a 2>/dev/null | grep sigset.o >/dev/null 2>/dev/null
++objdump -T $SLIBDIR/libc-*.so 2>/dev/null | grep sigset >/dev/null 2>/dev/null
+ if [ $? -eq 0 ]; then
+   echo found
+   DEF_SIGSET='#define HAVE_SIGSET 1'
+@@ -118,7 +120,7 @@
+ fi
+ 
+ echo $ac_n "| checking for setenv() ... $ac_c"
+-ar -t /usr/lib/libc.a 2>/dev/null | grep setenv.o >/dev/null 2>/dev/null
++objdump -T $SLIBDIR/libc-*.so 2>/dev/null | grep setenv >/dev/null 2>/dev/null
+ if [ $? -eq 0 ]; then
+   echo found
+   DEF_SETENV='#define HAVE_SETENV 1'
+@@ -127,7 +129,7 @@
+ fi
+ 
+ echo $ac_n "| checking for socketpair() ... $ac_c"
+-ar -t /usr/lib/libc.a 2>/dev/null | grep socketpair.o >/dev/null 2>/dev/null
++objdump -T $SLIBDIR/libc-*.so 2>/dev/null | grep socketpair >/dev/null 2>/dev/null
+ if [ $? -eq 0 ]; then
+   echo found
+   DEF_SOCKETPAIR='#define HAVE_SOCKETPAIR 1'
