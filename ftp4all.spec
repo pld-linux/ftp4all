@@ -2,7 +2,7 @@ Summary:	free, open source FTP server implementation
 Summary(pl):	implementacja serwera FTP
 Name:		ftp4all
 Version:	3.012
-Release:	2
+Release:	3
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://www.ftp4all.de/v3/archives/ftpd-%{version}.tar.gz
@@ -51,7 +51,11 @@ dostêp na poziomie IP, limity pasma, statystyki transferów.
 %patch1 -p1
 
 %build
+%ifarch %{ix86}
 echo "y" | CFLAGS="%{rpmcflags}" ./configure
+%else
+echo "y" | ./configure
+%endif
 %{__make}
 
 %install
@@ -62,13 +66,11 @@ install bin/* $RPM_BUILD_ROOT%{_bindir}
 
 cp -ar standard	$RPM_BUILD_ROOT%{_datadir}/%{name}
 
-gzip -9nf CHANGES README f4adp/*
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz f4adp frames/*
+%doc CHANGES README f4adp frames
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
