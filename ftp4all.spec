@@ -2,7 +2,7 @@ Summary:	Free, open source FTP server implementation
 Summary(pl):	Darmowa implementacja serwera FTP
 Name:		ftp4all
 Version:	3.012
-Release:	3
+Release:	4
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://www.ftp4all.de/v3/archives/ftpd-%{version}.tar.gz
@@ -11,13 +11,10 @@ Source1:	http://www.ftp4all.de/v3/f4awebsite.tar.gz
 # Source1-md5:	34b5c4712b8ed23af5beea1074f71fd7
 Patch0:		ftpd-opt.patch
 Patch1:		ftpd-endian.patch
+Patch2:		ftpd-configure.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 # this isn't ,,standard ftp''. Don't treat it as system ftp server
 # and don't put Provides:ftpserver etc here ! --misiek
-
-%ifarch ppc
-%define		optflags		-O0
-%endif
 
 %description
 FTP4ALL was designed to require no superuser privileges. The
@@ -55,9 +52,14 @@ dostêp na poziomie IP, limity pasma, statystyki transferów.
 %setup -q -n ftpd-%{version} -a1
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
-echo "y" | CFLAGS="%{rpmcflags}" ./configure
+echo "y" | \
+CFLAGS="%{rpmcflags}" \
+LIBDIR="%{_libdir}" \
+SLIBDIR="/%{_lib}" \
+./configure
 %{__make}
 
 %install
