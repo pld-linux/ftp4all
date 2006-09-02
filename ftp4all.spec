@@ -70,7 +70,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}}
 
 install bin/* $RPM_BUILD_ROOT%{_bindir}
 
-cp -ar standard	$RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -a standard	$RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
