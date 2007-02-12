@@ -1,5 +1,5 @@
 Summary:	Free, open source FTP server implementation
-Summary(pl):	Darmowa implementacja serwera FTP
+Summary(pl.UTF-8):   Darmowa implementacja serwera FTP
 Name:		ftp4all
 Version:	3.012
 Release:	4
@@ -34,20 +34,20 @@ distribution, the only one is the source distribution. So you must
 have a C compiler (gcc preferred) and related tools to compile
 FTP4ALL.
 
-%description -l pl
-FTP4ALL zosta³ zaprojektowany tak by nie wymagaæ praw
-superu¿ytkownika. G³ówn± zalet± takiego podej¶cia jest uniemo¿liwienie
-wykorzystania potencjalnych b³êdów do zdobycia uprawnieñ roota.
-Ponadto ka¿dy u¿ytkownik mo¿e uruchamiaæ ten serwer.
+%description -l pl.UTF-8
+FTP4ALL zostaÅ‚ zaprojektowany tak by nie wymagaÄ‡ praw
+superuÅ¼ytkownika. GÅ‚Ã³wnÄ… zaletÄ… takiego podejÅ›cia jest uniemoÅ¼liwienie
+wykorzystania potencjalnych bÅ‚Ä™dÃ³w do zdobycia uprawnieÅ„ roota.
+Ponadto kaÅ¼dy uÅ¼ytkownik moÅ¼e uruchamiaÄ‡ ten serwer.
 
-Jednak FTP4ALL nie jest zaprojektowany by zast±piæ wu-ftpd czy dowolny
-inny systemowy serwer FTP, a to dlatego, ¿e nie u¿ywa on standardowej
-bazy u¿ytkowników (/etc/passwd lub NIS), ani UNIXowych praw dostêpu do
-plików.
+Jednak FTP4ALL nie jest zaprojektowany by zastÄ…piÄ‡ wu-ftpd czy dowolny
+inny systemowy serwer FTP, a to dlatego, Å¼e nie uÅ¼ywa on standardowej
+bazy uÅ¼ytkownikÃ³w (/etc/passwd lub NIS), ani UNIXowych praw dostÄ™pu do
+plikÃ³w.
 
-Te i inne mo¿liwo¶ci jak ratio dla upload i download per u¿ytkownik,
-dostêp na poziomie IP, limity pasma, statystyki transferów sprawiaj±
-¿e FTP4ALL to dobry wybór dla prywatnych, specjalistycznych serwerów
+Te i inne moÅ¼liwoÅ›ci jak ratio dla upload i download per uÅ¼ytkownik,
+dostÄ™p na poziomie IP, limity pasma, statystyki transferÃ³w sprawiajÄ…
+Å¼e FTP4ALL to dobry wybÃ³r dla prywatnych, specjalistycznych serwerÃ³w
 FTP.
 
 %prep
