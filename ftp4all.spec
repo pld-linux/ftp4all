@@ -1,5 +1,5 @@
 Summary:	Free, open source FTP server implementation
-Summary(pl.UTF-8):   Darmowa implementacja serwera FTP
+Summary(pl.UTF-8):	Darmowa implementacja serwera FTP
 Name:		ftp4all
 Version:	3.012
 Release:	4
